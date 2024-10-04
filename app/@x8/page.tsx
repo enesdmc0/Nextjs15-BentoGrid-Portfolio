@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 
 const X8 = async () => {
-  await wait(8000);
   return (
     <>
       <div className="grid grid-cols-7 gap-2 grid-rows-5 h-full">

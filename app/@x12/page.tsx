@@ -1,12 +1,10 @@
-import { wait } from "@/lib/actions";
 import React from "react";
+import dynamic from "next/dynamic";
+
+const Clock = dynamic(() => import("@/components/clock"), { ssr: false });
 
 const X12 = async () => {
-  await wait(12000);
-
-  
-
-  return <div>X12</div>;
+  return <Clock />;
 };
 
 export default X12;
