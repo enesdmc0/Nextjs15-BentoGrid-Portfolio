@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React, { FC } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
+import Theme from "@/components/theme";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+const Clock = dynamic(() => import("@/components/clock"), { ssr: false });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -69,9 +74,8 @@ const RootLayout: FC<Props> = ({
               </div>
 
               <div className="row-span-5 col-span-2 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
-                {x5}
-
-                <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
+                <Image src="/enes.jpeg" alt="logo" fill className="object-cover" /> 
+               <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
               </div>
 
               <div className="row-span-5 col-span-4 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
@@ -102,15 +106,16 @@ const RootLayout: FC<Props> = ({
               </div>
 
               <div className="row-span-3 col-span-1 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
-                {x11}
+                <Theme />
                 <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
               </div>
 
               <div className="row-span-3 col-span-3 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
-                {x12}
+                <Clock />
                 <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
               </div>
             </div>
+            {children}
           </main>
         </ThemeProvider>
       </body>
