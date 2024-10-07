@@ -19,14 +19,11 @@ interface Props {
   x2: React.ReactNode;
   x3: React.ReactNode;
   x4: React.ReactNode;
-  x5: React.ReactNode;
   x6: React.ReactNode;
   x7: React.ReactNode;
   x8: React.ReactNode;
   x9: React.ReactNode;
   x10: React.ReactNode;
-  x11: React.ReactNode;
-  x12: React.ReactNode;
 }
 
 const RootLayout: FC<Props> = ({
@@ -35,14 +32,11 @@ const RootLayout: FC<Props> = ({
   x2,
   x3,
   x4,
-  x5,
   x6,
   x7,
   x8,
   x9,
   x10,
-  x11,
-  x12,
 }) => {
   return (
     <html lang="en">
@@ -81,7 +75,7 @@ const RootLayout: FC<Props> = ({
               <div className="row-span-5 col-span-4 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
                 {x6}
 
-                <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
+                {/* <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div> */}
               </div>
 
               <div className="row-span-5 col-span-3 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">

@@ -1,10 +1,10 @@
-import { wait } from '@/lib/actions'
-import React from 'react'
+import Drag from "@/components/drag";
+import { getTodos } from "@/lib/actions";
+import React from "react";
 
 const X6 = async () => {
-  return (
-    <div>X6</div>
-  )
-}
+  const {items} = await getTodos();
+  return <Drag data={items} />;
+};
 
-export default X6
+export default X6;
