@@ -1,9 +1,17 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { InitialDataProps } from "@/app/@x6/page";
+import { TodoType } from "@/types";
 
-// Reordering function
+// PocketBase'den gelen todo tipini tanımlayalım
+
+// Yeni InitialDataProps tipini tanımlayalım
+interface InitialDataProps {
+  id: string;
+  title: string;
+  cards: TodoType[];
+}
+
 function reorder<T>(list: T[], startIndex: number, endIndex: number) {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
@@ -12,16 +20,37 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 }
 
 interface Props {
-  data: InitialDataProps[];
+  todos: TodoType[]; // PocketBase'den gelen tüm todo'lar
 }
 
-const Drag: FC<Props> = ({ data }) => {
-  const [orderedData, setOrderedData] = useState(data);
+const Drag: FC<Props> = ({ todos }) => {
+  const [orderedData, setOrderedData] = useState<InitialDataProps[]>([]);
+
+  useEffect(() => {
+    // PocketBase'den gelen verileri istenen formata dönüştürme
+    const groupedTodos = todos.reduce<Record<string, TodoType[]>>(
+      (acc, todo) => {
+        if (!acc[todo.status]) {
+          acc[todo.status] = [];
+        }
+        acc[todo.status].push(todo);
+        return acc;
+      },
+      {}
+    );
+
+    const newOrderedData: InitialDataProps[] = [
+      { id: "todo", title: "To Do", cards: groupedTodos["todo"] || [] },
+      { id: "doing", title: "In Progress", cards: groupedTodos["doing"] || [] },
+      { id: "done", title: "Done", cards: groupedTodos["done"] || [] },
+    ];
+
+    setOrderedData(newOrderedData);
+  }, [todos]);
 
   const onDragEnd = (result: any) => {
     const { destination, source, type } = result;
 
-    // Eğer destination yoksa ya da aynı yere taşınıyorsa geri dön
     if (
       !destination ||
       (destination.droppableId === source.droppableId &&
@@ -30,11 +59,9 @@ const Drag: FC<Props> = ({ data }) => {
       return;
     }
 
-    // Listeler arasında kart taşıma işlemi
     if (type === "card") {
       const newOrderedData = [...orderedData];
 
-      // Kaynak ve hedef listeleri bul
       const sourceList = newOrderedData.find(
         (list) => list.id === source.droppableId
       );
@@ -46,7 +73,6 @@ const Drag: FC<Props> = ({ data }) => {
         return;
       }
 
-      // Aynı listede yeniden sıralama
       if (sourceList.id === destList.id) {
         const reorderedCards = reorder(
           sourceList.cards,
@@ -55,19 +81,20 @@ const Drag: FC<Props> = ({ data }) => {
         );
         sourceList.cards = reorderedCards;
       } else {
-        // Farklı listeler arasında taşıma
         const [movedCard] = sourceList.cards.splice(source.index, 1);
+        movedCard.status = destination.droppableId as "todo" | "doing" | "done";
         destList.cards.splice(destination.index, 0, movedCard);
       }
 
       setOrderedData(newOrderedData);
+      // Burada PocketBase'e güncellenmiş veriyi gönderme işlemi yapılabilir
     }
   };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="grid grid-cols-3 p-2 gap-2 h-full">
-        {orderedData.map((list, listIndex) => (
+        {orderedData.map((list) => (
           <Droppable key={list.id} droppableId={list.id} type="card">
             {(provided) => (
               <div
@@ -101,7 +128,7 @@ const Drag: FC<Props> = ({ data }) => {
                           ref={provided.innerRef}
                           className="relative overflow-hidden text-white text-xs border border-[#f8f9f91a] p-2 rounded-lg"
                         >
-                          {card.content}
+                          {card.text}
                           <div
                             className={`ml-auto h-full w-1 absolute right-0 top-0 ${
                               list.id === "todo"
