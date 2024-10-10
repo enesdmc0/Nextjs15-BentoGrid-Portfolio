@@ -1,9 +1,18 @@
 "use client";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Theme = () => {
-  const { setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <div className="flex items-center justify-center gap-5 bg-red-500 dark:bg-green-500">
       <button onClick={() => setTheme("light")}>light</button>

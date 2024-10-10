@@ -1,6 +1,7 @@
 "use server"
 import { pb } from "@/lib/pb"
 import { TodosType, TodoType } from "@/types"
+import { revalidatePath } from "next/cache"
 
 pb.autoCancellation(false)
 
@@ -34,6 +35,9 @@ export const updateTodo = async (id: string, status: string): Promise<TodoType> 
             }),
         "Failed to update todo"
     )
+
+    revalidatePath("/")
+
     return updatedTodo as TodoType
 
 }

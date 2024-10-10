@@ -2,10 +2,10 @@
 import React, { FC, useState, useEffect } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import { TodoType } from "@/types";
+import { updateTodo } from "@/lib/actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-// PocketBase'den gelen todo tipini tanımlayalım
-
-// Yeni InitialDataProps tipini tanımlayalım
 interface InitialDataProps {
   id: string;
   title: string;
@@ -20,12 +20,12 @@ function reorder<T>(list: T[], startIndex: number, endIndex: number) {
 }
 
 interface Props {
-  todos: TodoType[]; // PocketBase'den gelen tüm todo'lar
+  todos: TodoType[];
 }
 
 const Drag: FC<Props> = ({ todos }) => {
   const [orderedData, setOrderedData] = useState<InitialDataProps[]>([]);
-
+  const router = useRouter();
   useEffect(() => {
     // PocketBase'den gelen verileri istenen formata dönüştürme
     const groupedTodos = todos.reduce<Record<string, TodoType[]>>(
@@ -48,13 +48,13 @@ const Drag: FC<Props> = ({ todos }) => {
     setOrderedData(newOrderedData);
   }, [todos]);
 
-  const onDragEnd = (result: any) => {
-    const { destination, source, type } = result;
+  const onDragEnd = async (result: any) => {
+    const { destination, source, type, draggableId } = result;
 
     if (
-      !destination ||
-      (destination.droppableId === source.droppableId &&
-        destination.index === source.index)
+      !destination || // dropped outside the list
+      (destination.droppableId === source.droppableId && // dropped in the same list
+        destination.index === source.index) // dropped in the same position
     ) {
       return;
     }
@@ -70,6 +70,7 @@ const Drag: FC<Props> = ({ todos }) => {
       );
 
       if (!sourceList || !destList) {
+        // If source or destination list is not found
         return;
       }
 
@@ -87,7 +88,13 @@ const Drag: FC<Props> = ({ todos }) => {
       }
 
       setOrderedData(newOrderedData);
-      // Burada PocketBase'e güncellenmiş veriyi gönderme işlemi yapılabilir
+
+      try {
+        await updateTodo(draggableId, destination.droppableId);
+        toast.success("Todo updated successfully");
+      } catch (e) {
+        toast.error("Failed to update todo");
+      }
     }
   };
 
