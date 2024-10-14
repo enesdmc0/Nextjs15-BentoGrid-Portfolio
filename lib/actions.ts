@@ -9,12 +9,14 @@ const X_TOKEN = process.env.X_TOKEN || ""
 
 const fetchData = async <T>(fetchFunction: () => Promise<T>, errorMessage: string): Promise<T> => {
     try {
+        console.log("-------------get data render--------------")
         return await fetchFunction()
     } catch (error: any) {
         console.error(`${errorMessage}:`, error)
         throw new Error(`${errorMessage}: ${error.message || "Unknown error"}`)
     }
 }
+
 
 
 export const getTodos = async (): Promise<TodosType> => {
