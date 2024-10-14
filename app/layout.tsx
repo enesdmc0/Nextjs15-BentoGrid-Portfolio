@@ -59,13 +59,13 @@ const RootLayout: FC<Props> = ({ children, x6, x7, x8, x9, x10 }) => {
               </div>
 
               <div className="row-span-5 col-span-3 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">
-                {x7} belli değil
+                {x7}
                 <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
               </div>
 
               <div className="row-span-6 col-span-3 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden p-2">
                 {x8}
-                <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
+                {/* <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div> */}
               </div>
 
               <div className="row-span-3 col-span-5 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-3xl overflow-hidden">

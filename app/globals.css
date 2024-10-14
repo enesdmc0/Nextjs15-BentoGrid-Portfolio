@@ -20,15 +20,15 @@
 
 @keyframes scrollLeft {
   to {
-    left: -100px;
+    left: -200px;
   }
 }
 
-
+/* #e11d48 */
 .itemLeft {
   width: 100px;
   height: 100px;
-  background-color: #e11d48;
+  background-color: #111111;
   position: absolute;
   animation-timing-function: linear;
   animation-duration: 30s;
@@ -36,38 +36,86 @@
 }
 
 .itemLeft {
-  left: max(calc(100px * 8), 100%);
+  left: max(calc(120px * 20), 100%);
   animation-name: scrollLeft;
 }
 
 .item1 {
-  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+  animation-delay: calc(30s / 20 * (20 - 1) * -1);
 }
 
 .item2 {
-  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+  animation-delay: calc(30s / 20 * (20 - 2) * -1);
 }
 
 .item3 {
-  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+  animation-delay: calc(30s / 20 * (20 - 3) * -1);
 }
 
 .item4 {
-  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+  animation-delay: calc(30s / 20 * (20 - 4) * -1);
 }
 
 .item5 {
-  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+  animation-delay: calc(30s / 20 * (20 - 5) * -1);
 }
 
 .item6 {
-  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+  animation-delay: calc(30s / 20 * (20 - 6) * -1);
 }
 
 .item7 {
-  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+  animation-delay: calc(30s / 20 * (20 - 7) * -1);
 }
 
 .item8 {
-  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+  animation-delay: calc(30s / 20 * (20 - 8) * -1);
+}
+
+.item9 {
+  animation-delay: calc(30s / 20 * (20 - 9) * -1);
+}
+
+.item10 {
+  animation-delay: calc(30s / 20 * (20 - 10) * -1);
+}
+
+.item11 {
+  animation-delay: calc(30s / 20 * (20 - 11) * -1);
+}
+
+.item12 {
+  animation-delay: calc(30s / 20 * (20 - 12) * -1);
+}
+
+.item13 {
+  animation-delay: calc(30s / 20 * (20 - 13) * -1);
+}
+
+.item14 {
+  animation-delay: calc(30s / 20 * (20 - 14) * -1);
+}
+
+.item15 {
+  animation-delay: calc(30s / 20 * (20 - 15) * -1);
+}
+
+.item16 {
+  animation-delay: calc(30s / 20 * (20 - 16) * -1);
+}
+
+.item17 {
+  animation-delay: calc(30s / 20 * (20 - 17) * -1);
+}
+
+.item18 {
+  animation-delay: calc(30s / 20 * (20 - 18) * -1);
+}
+
+.item19 {
+  animation-delay: calc(30s / 20 * (20 - 19) * -1);
+}
+
+.item20 {
+  animation-delay: calc(30s / 20 * (20 - 20) * -1);
 }
