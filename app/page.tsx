@@ -37,6 +37,7 @@ const Page = () => {
 
       <div className="row-span-5 col-span-4 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid5 />
+        <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
       <div className="row-span-5 col-span-3 relative border border-[#f8f9f91a] bg-[#f8f9f905] rounded-2xl overflow-hidden">

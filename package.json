@@ -11,6 +11,7 @@
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.11.9",
     "next": "15.0.0-rc.0",
     "next-themes": "^0.3.0",
     "pocketbase": "^0.21.5",
