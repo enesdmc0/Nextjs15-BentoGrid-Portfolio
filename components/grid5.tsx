@@ -1,52 +1,49 @@
 "use client";
-import React, { FC, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
-import { TodoType } from "@/types";
-import { updateTodo } from "@/lib/actions";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-
-interface InitialDataProps {
+const todos = [
+  {
+    id: "doing",
+    title: "In Progress Projects",
+    cards: [
+      {
+        id: "2",
+        status: "doing",
+        text: "test.com",
+      },
+    ],
+  },
+  {
+    id: "done",
+    title: "Done Projects",
+    cards: [
+      {
+        id: "3",
+        status: "done",
+        text: "fztilkaydemirci.com",
+      },
+    ],
+  },
+];
+export interface InitialDataProps {
   id: string;
   title: string;
-  cards: TodoType[];
+  cards: CardProps[];
 }
 
+interface CardProps {
+  id: string;
+  status: string;
+  text: string;
+}
 function reorder<T>(list: T[], startIndex: number, endIndex: number) {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-  return result;
-}
-
-interface Props {
-  todos: TodoType[];
-}
-
-const Drag: FC<Props> = ({ todos }) => {
-  const [orderedData, setOrderedData] = useState<InitialDataProps[]>([]);
-  const router = useRouter();
-  useEffect(() => {
-    // PocketBase'den gelen verileri istenen formata dönüştürme
-    const groupedTodos = todos.reduce<Record<string, TodoType[]>>(
-      (acc, todo) => {
-        if (!acc[todo.status]) {
-          acc[todo.status] = [];
-        }
-        acc[todo.status].push(todo);
-        return acc;
-      },
-      {}
-    );
-
-    const newOrderedData: InitialDataProps[] = [
-      { id: "todo", title: "To Do", cards: groupedTodos["todo"] || [] },
-      { id: "doing", title: "In Progress", cards: groupedTodos["doing"] || [] },
-      { id: "done", title: "Done", cards: groupedTodos["done"] || [] },
-    ];
-
-    setOrderedData(newOrderedData);
-  }, [todos]);
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+    return result;
+  }
+const Grid5 = () => {
+  const [orderedData, setOrderedData] = useState<InitialDataProps[]>(todos);
 
   const onDragEnd = async (result: any) => {
     const { destination, source, type, draggableId } = result;
@@ -88,19 +85,11 @@ const Drag: FC<Props> = ({ todos }) => {
       }
 
       setOrderedData(newOrderedData);
-
-      try {
-        await updateTodo(draggableId, destination.droppableId);
-        toast.success("Todo updated successfully");
-      } catch (e) {
-        toast.error("Failed to update todo");
-      }
     }
   };
-
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="grid grid-cols-3 p-2 gap-2 h-full">
+      <div className="grid grid-cols-2 p-2 gap-2 h-full">
         {orderedData.map((list) => (
           <Droppable key={list.id} droppableId={list.id} type="card">
             {(provided) => (
@@ -160,4 +149,4 @@ const Drag: FC<Props> = ({ todos }) => {
   );
 };
 
-export default Drag;
+export default Grid5;

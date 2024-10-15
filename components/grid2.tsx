@@ -2,7 +2,7 @@ import React from "react";
 
 const Grid2 = () => {
   return (
-    <div className="text-white text-xs p-3 flex items-center justify-center  h-full">
+    <div className="text-white/70 text-xs p-3 flex items-center justify-center  h-full">
       As a passionate and innovative developer with a strong fascination for the
       field of Computer Science, I am dedicated to continuously cultivating my
       skills and embracing new challenges. With a solid foundation in

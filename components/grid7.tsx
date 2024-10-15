@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-const X8 = () => {
+const Grid7 = () => {
   const [date, setDate] = useState(0);
   const calendar = {
     january: 31,
@@ -117,4 +117,4 @@ const X8 = () => {
   );
 };
 
-export default X8;
+export default Grid7;
