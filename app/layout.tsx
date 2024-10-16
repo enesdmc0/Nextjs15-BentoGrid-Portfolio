@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React, { FC } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
-import { GeistSans } from 'geist/font/sans';
-
+import { GeistSans } from "geist/font/sans";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Enes Demirci",
@@ -19,6 +19,7 @@ const RootLayout: FC<Props> = ({ children }) => {
     <html lang="en">
       {/* <html lang="en" suppressHydrationWarning> */}
       <body className={GeistSans.className}>
+        <Analytics />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="lg:h-screen bg-[#0d0d0d] dark:bg-zinc-100 p-3 md:p-5">
             {children}
