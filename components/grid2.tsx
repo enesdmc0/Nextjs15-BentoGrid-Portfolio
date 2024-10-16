@@ -2,19 +2,23 @@ import React from "react";
 
 const Grid2 = () => {
   return (
-    <div className="text-white/70 text-xs p-3 flex items-center justify-center  h-full">
-      As a passionate and innovative developer with a strong fascination for the
-      field of Computer Science, I am dedicated to continuously cultivating my
-      skills and embracing new challenges. With a solid foundation in
-      TypeScript, React.js, Next.js, and React Native, I am adept at creating
-      dynamic and efficient applications. I thrive in collaborative
-      environments, demonstrating excellent communication skills and a
-      collaborative approach to problem-solving with product managers,
-      designers, engineers, and other stakeholders. Highly self-motivated, I
-      work efficiently with minimal supervision and am energized by tackling
-      projects that push me beyond my comfort zone. Committed to ongoing
-      learning and growth, I strive to contribute positively to your
-      organization’s success.
+    <div className="p-3 flex flex-col gap-2 h-full overflow-y-auto">
+      <h2 className="text-white/50 dark:text-black/70 font-semibold tracking-widest text-sm md:text-normal ">
+        About
+      </h2>
+      <p className="text-white/40 dark:text-black/70 text-xs md:text-sm tracking-wider">
+        Hello! I am a software developer with a passion for technology and
+        software development. I work with technologies like TypeScript,
+        React.js, Next.js, and React Native to build web and mobile
+        applications. I also have a strong interest in modern design principles
+        and artificial intelligence, which I integrate into my projects whenever
+        possible. Every new project is an opportunity for me to learn and
+        further improve myself. <br /> <br /> Learning new technologies, exploring AI, and
+        solving complex problems are the main factors that motivate me. I enjoy
+        pushing my limits and facing new challenges. In every project, I do my
+        best to deliver better, more efficient solutions while staying
+        up-to-date with the latest trends in technology and design.
+      </p>
     </div>
   );
 };

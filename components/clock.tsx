@@ -1,12 +1,30 @@
-"use client"
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+"use client";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 const monthNames = [
-  "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-  "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 
-const dayNames = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+const dayNames = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 const formatNumber = (num: number): string => {
   return num < 10 ? `0${num}` : num.toString();
@@ -33,13 +51,13 @@ const Clock: React.FC = () => {
     const minutes = formatNumber(time.getMinutes());
     const seconds = formatNumber(time.getSeconds());
 
-    return  `${day} ${month} ${year} ${dayName} | ${hours}:${minutes}.${seconds}`;
+    return `${day} ${month} ${year} ${dayName} | ${hours}:${minutes}.${seconds}`;
   }, [time]);
 
   return (
-    <div className='h-full w-full flex items-center justify-center text-white/50  gap-2 font-semibold'>
-      <p>{formattedTime.split(' | ')[0]}</p>
-      <p>{formattedTime.split(' | ')[1]}</p>
+    <div className="h-full w-full flex items-center justify-center text-white/50 dark:text-black/70 gap-2 text-sm tracking-widest p-3">
+      <p>{formattedTime.split(" | ")[0]}</p>
+      <p>{formattedTime.split(" | ")[1]}</p>
     </div>
   );
 };

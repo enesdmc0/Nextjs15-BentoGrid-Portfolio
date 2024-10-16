@@ -2,11 +2,15 @@ import type { Config } from "tailwindcss";
 const {
     default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+
 const config: Config = {
     darkMode: 'class',
     content: ["./app/**/*.{ts,tsx,mdx}", './components/**/*.{ts,tsx,mdx}'],
     theme: {
         extend: {
+            colors: {
+                b1: "#00000014",
+            },
             backgroundImage: {
                 'bg1': "url('/grain.png')",
             },

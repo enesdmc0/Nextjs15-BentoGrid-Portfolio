@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React, { FC } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GeistSans } from 'geist/font/sans';
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,9 +18,9 @@ const RootLayout: FC<Props> = ({ children }) => {
   return (
     <html lang="en">
       {/* <html lang="en" suppressHydrationWarning> */}
-      <body>
+      <body className={GeistSans.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="h-screen bg-[#0d0d0d] dark:bg-blue-500 p-5">
+          <main className="md:h-screen bg-[#0d0d0d] dark:bg-zinc-100 p-5">
             {children}
           </main>
         </ThemeProvider>

@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.wrapper {
-  width: 90%;
-  max-width: 1536px;
-  margin-inline: auto;
-  height: 100px;
-  position: relative;
-  overflow: hidden;
+.mask {
   mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0),
@@ -26,10 +20,6 @@
 
 /* #e11d48 */
 .itemLeft {
-  width: 100px;
-  height: 100px;
-  background-color: #111111;
-  position: absolute;
   animation-timing-function: linear;
   animation-duration: 30s;
   animation-iteration-count: infinite;
