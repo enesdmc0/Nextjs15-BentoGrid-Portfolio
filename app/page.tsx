@@ -1,70 +1,72 @@
 import React from "react";
-import Grid1 from "@/components/grid1";
-import Grid2 from "@/components/grid2";
-import Grid3 from "@/components/grid3";
-import Grid4 from "@/components/grid4";
-import Grid5 from "@/components/grid5";
-import Grid6 from "@/components/grid6";
-import Grid7 from "@/components/grid7";
-import Grid8 from "@/components/grid8";
-import Grid9 from "@/components/grid9";
-import Theme from "@/components/theme";
 import dynamic from "next/dynamic";
+import {
+  Grid1,
+  Grid2,
+  Grid3,
+  Grid4,
+  Grid5,
+  Grid6,
+  Grid7,
+  Grid8,
+  Grid9,
+  Theme,
+} from "@/components";
 
 const Clock = dynamic(() => import("@/components/clock"), { ssr: false });
 
 const Page = () => {
   return (
-    <div className="border-[2.5px] border-[#f8f9f91a] dark:border-b1 h-full grid grid-cols-12 md:grid-rows-12 rounded-2xl p-5 gap-4">
-      <div className="row-span-4 md:col-span-5 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden p-3">
+    <div className="border-[2.5px] border-[#f8f9f91a] dark:border-b1 h-full grid grid-cols-12 lg:grid-rows-12 rounded-2xl p-3 md:p-5 gap-4">
+      <div className="row-span-4 lg:col-span-5 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden p-3">
         <Grid1 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-4 md:col-span-4 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-4 lg:col-span-4 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid2 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-2 md:row-span-4 md:col-span-3 col-span-12  relative overflow-hidden">
+      <div className="row-span-2 lg:row-span-4 lg:col-span-3 col-span-12  relative overflow-hidden">
         <Grid3 />
       </div>
 
-      <div className="aspect-square md:aspect-auto row-span-5 md:col-span-2 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="aspect-square lg:aspect-auto row-span-5 lg:col-span-2 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid4 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-5 md:col-span-4 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-5 lg:col-span-4 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid5 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-5 md:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-5 lg:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid6 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="aspect-square md:aspect-auto row-span-7 md:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden p-2">
+      <div className="aspect-square lg:aspect-auto row-span-7 lg:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden p-2">
         <Grid7 />
       </div>
 
-      <div className="row-span-3 md:col-span-5 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-3 lg:col-span-5 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid8 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="aspect-video md:aspect-auto row-span-3 md:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="aspect-video lg:aspect-auto row-span-3 lg:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Grid9 />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-3 md:col-span-1 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-3 lg:col-span-1 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Theme />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>
 
-      <div className="row-span-1 md:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
+      <div className="row-span-1 lg:col-span-3 col-span-12 relative border border-[#f8f9f91a] dark:border-b1 bg-[#f8f9f905] rounded-2xl overflow-hidden">
         <Clock />
         <div className="absolute inset-0 bg-bg1 bg-contain opacity-5 pointer-events-none mix-blend-difference	"></div>
       </div>

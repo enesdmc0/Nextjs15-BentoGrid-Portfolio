@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-const Grid7 = () => {
+export const Grid7 = () => {
   const [date, setDate] = useState(0);
   const calendar = {
     january: 31,
@@ -104,5 +104,3 @@ const Grid7 = () => {
     </div>
   );
 };
-
-export default Grid7;

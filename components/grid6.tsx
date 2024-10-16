@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 
-const Grid6 = () => {
+export const Grid6 = () => {
     return (
         <div className="grid grid-cols-3 grid-rows-3 h-full gap-1">
           {Array(9).fill(0).map((_, i) => (
@@ -12,5 +12,3 @@ const Grid6 = () => {
         </div>
       );
 }
-
-export default Grid6

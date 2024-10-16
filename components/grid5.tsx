@@ -1,42 +1,15 @@
-import { b } from "framer-motion/client";
+import { g5 } from "@/lib/constants";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
-const data = [
-  {
-    a: "https://enesdmc.com",
-    b: "Enesdmc",
-    c: "While developing the project, I utilized Next.js, Mdx, PocketBase, Jotai, and TypeScript.",
-    e: "Web",
-  },
-  {
-    a: "https://fztilkaydemirci.com",
-    b: "Fztilkaydemirci",
-    c: "While developing the project, I utilized Next.js, Shadcn Ui, Jotai, and TypeScript.",
-    e: "Web",
-  },
-  {
-    a: "",
-    b: "Coffee&Tea Tracking",
-    c: "While developing the project, I utilized Expo, Supabase, Jotai, and Nativewind.",
-    e: "Mobile",
-  },
-  {
-    a: "https://github.com/enesdmc0/Pocketbase-Nextjs14",
-    b: "Next.js Pocketbase",
-    c: "While developing the project, I utilized Next.js, PocketBase, Jotai, and TypeScript.",
-    e: "Web",
-  },
-];
 
-const Grid5 = () => {
+export const Grid5 = () => {
   return (
-    <div className="grid p-3 relative z-40 gap-2 overflow-y-auto h-full">
+    <div className="grid p-3 relative z-40 gap-2 overflow-y-auto scrollbar-hide h-full">
       <h2 className="text-white/50 dark:text-black/70 font-semibold tracking-widest text-sm md:text-normal ">
         Projects
       </h2>
-      {data.map((x, i) => (
+      {g5.map((x, i) => (
         <a
           target="_blank"
           href={x.a}
@@ -59,5 +32,3 @@ const Grid5 = () => {
     </div>
   );
 };
-
-export default Grid5;

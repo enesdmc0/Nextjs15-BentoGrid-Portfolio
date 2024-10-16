@@ -1,35 +1,13 @@
+import { g8 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-const data = [
-  "appwrite",
-  "bun",
-  "claude",
-  "expo",
-  "figma",
-  "nextjs",
-  "markdown",
-  "neon",
-  "notion",
-  "obsidian",
-  "openai",
-  "pocketbase",
-  "preact",
-  "prisma",
-  "query",
-  "react",
-  "shadcn",
-  "tailwind",
-  "typescript",
-  "vercel",
-];
-
-const Grid8 = async () => {
+export const Grid8 = async () => {
   return (
     <div className="h-full flex flex-col justify-center relative z-20 p-3">
       <div className="mask overflow-hidden relative h-20 mx-auto max-w-[1536px] w-[90%]">
-        {data.map((x, i) => (
+        {g8.map((x, i) => (
           <div
             key={i}
             className={cn(
@@ -44,5 +22,3 @@ const Grid8 = async () => {
     </div>
   );
 };
-
-export default Grid8;

@@ -1,18 +1,11 @@
+import { g9 } from "@/lib/constants";
 import Image from "next/image";
 import React from "react";
 
-const Grid9 = () => {
+export const Grid9 = () => {
   return (
     <div className="grid grid-cols-7 p-2 h-full gap-1 relative z-40 ">
-      {Object.entries({
-        "enesdmc.com": "",
-        technologies: "technologies/software",
-        components: "components",
-        ai: "ai",
-        blogs: "blogs",
-        english: "english/lessons",
-        game: "game",
-      }).map(([x, y], i) => (
+      {Object.entries(g9).map(([x, y], i) => (
         <a
           href={`https://enesdmc.com/${y}`}
           target="_blank"
@@ -31,5 +24,3 @@ const Grid9 = () => {
     </div>
   );
 };
-
-export default Grid9;

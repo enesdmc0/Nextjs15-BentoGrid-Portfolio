@@ -55,7 +55,7 @@ const Clock: React.FC = () => {
   }, [time]);
 
   return (
-    <div className="h-full w-full flex items-center justify-center text-white/50 dark:text-black/70 gap-2 text-sm tracking-widest p-3">
+    <div className="h-full w-full flex items-center justify-center text-white/50 dark:text-black/70 gap-2 text-xs sm:text-sm tracking-widest p-3">
       <p>{formattedTime.split(" | ")[0]}</p>
       <p>{formattedTime.split(" | ")[1]}</p>
     </div>
